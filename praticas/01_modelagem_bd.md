@@ -1,0 +1,42 @@
+# Capítulo 01: Modelagem de Dados e Configuração do Banco
+
+Neste capítulo, definiremos a estrutura do nosso banco de dados MariaDB e criaremos os scripts necessários para iniciar a aplicação.
+
+## 1. Diagrama Entidade-Relacionamento (DER)
+
+O modelo consiste em três tabelas principais: `produto`, `entrada` e `saida`.
+
+```
+@sample.svg
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Produto -->
+  <rect x="50" y="50" width="200" height="120" fill="#f9f9f9" stroke="#333" stroke-width="2"/>
+  <text x="150" y="70" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle">Produto</text>
+  <line x1="50" y1="80" x2="250" y2="80" stroke="#333"/>
+  <text x="60" y="100" font-family="Arial" font-size="12">id (PK, AI)</text>
+  <text x="60" y="120" font-family="Arial" font-size="12">nome</text>
+  <text x="60" y="140" font-family="Arial" font-size="12">estoque (DECIMAL)</text>
+  <text x="60" y="160" font-family="Arial" font-size="12">preco_unitario</text>
+
+  <!-- Entrada -->
+  <rect x="350" y="50" width="200" height="100" fill="#e6f7ff" stroke="#333" stroke-width="2"/>
+  <text x="450" y="70" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle">Entrada</text>
+  <line x1="350" y1="80" x2="550" y2="80" stroke="#333"/>
+  <text x="360" y="100" font-family="Arial" font-size="12">id (PK, AI)</text>
+  <text x="360" y="120" font-family="Arial" font-size="12">produto_id (FK)</text>
+  <text x="360" y="140" font-family="Arial" font-size="12">quantidade</text>
+
+  <!-- Saida -->
+  <rect x="350" y="200" width="200" height="100" fill="#fff0f0" stroke="#333" stroke-width="2"/>
+  <text x="450" y="220" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle">Saida</text>
+  <line x1="350" y1="230" x2="550" y2="230" stroke="#333"/>
+  <text x="360" y="250" font-family="Arial" font-size="12">id (PK, AI)</text>
+  <text x="360" y="270" font-family="Arial" font-size="12">produto_id (FK)</text>
+  <text x="360" y="290" font-family="Arial" font-size="12">quantidade</text>
+
+  <!-- Relacionamentos -->
+  <line x1="250" y1="110" x2="350" y2="110" stroke="#666" stroke-dasharray="5,5"/>
+  <line x1="250" y1="150" x2="350" y2="250" stroke="#666" stroke-dasharray="5,5"/>
+</svg>
+@sample.svg
+```
